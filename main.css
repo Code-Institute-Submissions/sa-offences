@@ -1,4 +1,53 @@
 .text .x.axis text {
    text-anchor: end !important;
-   transform: rotate(-45deg);
+   transform: rotate(-50deg);
+}
+.day-text {
+   font-weight: bold;
+   display: inline-block;
+}
+
+.day {
+   width: 15px;
+   height:  15px;
+   display: inline-block;
+   margin-left: 15px;
+   margin-right: 10px;
+}
+
+.monday {
+   background-color: blue;
+}
+
+.tuesday {
+   background-color: red;
+}
+
+.wednesday {
+  background-color: green;
+}
+
+.thursday {
+   background-color: purple;
+}
+
+.friday {
+   background-color: #000;
+}
+
+.saturday {
+   background-color: pink;
+}
+
+.sunday {
+   background-color: orange;
+}
+
+.suburb-chart-outer-container {
+   margin: 0 auto;
+   width: 1100px;
+   height: 500px;
+   
+   overflow: hidden;
+   overflow-x: scroll;
 }
