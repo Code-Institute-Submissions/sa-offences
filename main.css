@@ -1,19 +1,180 @@
-.text .x.axis text {
-   text-anchor: end !important;
-   transform: rotate(-50deg);
+/*--------------------------------------default settings*/
+
+.centering {
+   margin: 0 auto;
+   
 }
-.day-text {
-   font-weight: bold;
+
+.inline-block {
    display: inline-block;
 }
 
+.text-center {
+   text-align: center;
+}
+
+.row {
+   margin :20px auto;
+}
+
+.bgc-w {
+   background-color: white;
+   padding: 20px 0;
+}
+
+.chart-head{
+   background-color: lightgray;
+   border-bottom: 2px solid gray;
+}
+
+
+/*---------------------------------------default settings*/
+
+/*-----------------------------------------------headings*/
+
+h1 {
+
+   margin: 20px auto 0px auto;
+}
+
+h4 {
+   margin: 30px auto 30px auto;
+}
+
+/*------------------------------------------------headings*/
+
+/*-------------------------------dc chart default settings*/
+
+.dc-chart {
+   background-color: transparent;
+}
+.text {
+   color: black;
+}
+.text .x.axis text {
+   text-anchor: end !important;
+   transform: rotate(-60deg);
+   fill: #000;
+   font-weight: bold;
+}
+
+.number-display{
+   
+   margin-top: 50px;
+}
+
+.dc-chart g.row text {
+    fill: black;
+    font-weight: bold;
+}
+
+.dc-chart .pie-slice {
+   fill: black;
+    font-weight: bold;
+}
+.dc-chart .grid-line line {
+   stroke: #000;
+}
+
+.dc-chart rect.bar {
+   
+}
+
+/*----------------------------------dc chart default settings*/
+
+body {
+   background-color: #C4936E;
+   color: #000;
+}
+
+section {
+   padding-bottom: 50px;
+}
+
+
+
+.offence-display-number {
+   font-size: 50px;
+}
+
+/*/////////////////////Suburb selector///////////////////////////////////////*/
+.suburb-selector-1 {
+   float: none !important;
+}
+
+/*/////////////////////Suburb selector///////////////////////////////////////*/
+
+/*/////////////////////Offence Count///////////////////////////////////////*/
+#offence-count-2{
+   padding: 23px 50px;
+}
+/*/////////////////////Offence Count///////////////////////////////////////*/
+
+
+/*/////////////////////Offence Description 3 Bar Chart///////////////////////////////////////*/
+
+text .y-axis-label .y-label {
+   font-weight: bold !important;
+}
+
+/*/////////////////////Offence Description 3 Bar Chart///////////////////////////////////////*/
+
+/*/////////////////////Suburb chart///////////////////////////////////////*/
+
+.suburb-chart-outer-container {
+   margin:0 100px 0px 100px;
+   display: inline-block;
+   overflow: hidden;
+   overflow-x: scroll;
+   border: 1px solid #000;
+}
+
+.suburb-head {
+   width: 1119px;
+}
+
+
+/*/////////////////////Suburb chart///////////////////////////////////////*/
+
+/*/////////////////////timeline chart///////////////////////////////////////*/
+
+.col-xs-offset-1 {
+   margin-left: 8.333333%;
+}
+
+
+
+/*/////////////////////timeline chart///////////////////////////////////////*/
+
+/*/////////////////////Day Percentages///////////////////////////////////////*/
+.days-container {
+   padding-top: 80px;
+   padding-right: 30px;
+}
 .day {
    width: 15px;
-   height:  15px;
+   height: 15px;
    display: inline-block;
    margin-left: 15px;
    margin-right: 10px;
 }
+
+.day-text {
+   font-weight: bold;
+   display: inline-block;
+   margin-bottom: 0;
+   color: black;
+}
+
+.day-percent {
+   float: right !important;
+   color: black;
+}
+
+.day-container {
+   display: block;
+}
+
 
 .monday {
    background-color: blue;
@@ -24,7 +185,7 @@
 }
 
 .wednesday {
-  background-color: green;
+   background-color: green;
 }
 
 .thursday {
@@ -43,11 +204,9 @@
    background-color: orange;
 }
 
-.suburb-chart-outer-container {
-   margin: 0 auto;
-   width: 1100px;
-   height: 500px;
-   
-   overflow: hidden;
-   overflow-x: scroll;
+
+/*/////////////////////Day Percentages///////////////////////////////////////*/
+
+.reset-margin-top {
+   margin-top: 0px;
 }

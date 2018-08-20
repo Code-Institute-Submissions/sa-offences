@@ -14,50 +14,235 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/crossfilter/1.3.12/crossfilter.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dc/2.1.8/dc.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/queue-async/1.0.7/queue.min.js"></script>
-    
-    
+
+
 
 </head>
 
 <body>
-    
-    <div class="container-fluid">
+
+    <section class="container-fluid">
+
+        <!--**********************first row********************************-->
         <div class="row">
-        <div id="suburb-selector-1" class="text"></div>
-    <div id="pie-chart-2" class="text"></div>
-    <div id="piechart-3" class="text"></div>
-    <div id="bar-chart-4" class="text"></div>
-    </div>
-    
-    
-    <div class="row"><div class="suburb-chart-outer-container"><div><div id="bar-chart-5" class="text"></div> </div></div></div>
-    
-    
-    
-    
-    <div id="percentMon" class="day-container"><div class="day monday"></div><p class="day-text">Monday:</p></div>
-    <div id="percentTue" class="day-container"><div class="day tuesday"></div><p class="day-text">Tuesday:</p></div>
-    <div id="percentWed" class="day-container"><div class="day wednesday"></div><p class="day-text">Wednesday:</p></div>
-    <div id="percentThu" class="day-container"><div class="day thursday"></div><p class="day-text">Thursday:</p> </div>
-    <div id="percentFri" class="day-container"><div class="day friday"></div><p class="day-text">Friday:</p> </div>
-    <div id="percentSat" class="day-container"><div class="day saturday"></div><p class="day-text">Saturday:</p> </div>
-    <div id="percentSun" class="day-container"><div class="day sunday"></div><p class="day-text">Sunday:</p> </div>
-    
-    <div id="bar-chart-7" class="text"></div>
-    <div id="line-chart-8" class="text"></div>
-        
-    </div>
-    
-    
-    
-    
+            <h1>Reported Offences in South Australia</h1>
+        </div>
+
+        <!--**********************second row********************************-->
+        <div class="row second-row">
+
+            <div class="col-md-4 text-center ">
+
+                <div class="chart-head">
+                    <h6 class="inline-block">Suburb</h6>
+                </div>
+                <div class="bgc-w">
+                    <div id="suburb-selector-1" class="suburb-selector-1"></div>
+                </div>
+
+                <div class="chart-head">
+                    <h6 class="inline-block">Total reported offences</h6>
+                </div>
+                <div class="bgc-w ">
+                    <div class="inline-block">
+                        <div id="offence-count-2" class="text offence-display-number"></div>
+                    </div>
+                </div>
+
+            </div>
 
 
-    
+            <div class="col-md-4 text-center">
+
+                <div class="chart-head">
+                    <h6>Level 1 offence description</h6>
+                </div>
+                <div class="bgc-w">
+                    <div class="inline-block">
+                        <div id="pie-chart-3" class="text"></div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-md-4 text-center">
+
+                <div class="chart-head">
+                    <h6>Level 2 offence description</h6>
+                </div>
+                <div class="bgc-w">
+                    <div class="inline-block">
+                        <div id="piechart-4" class="text"></div>
+                    </div>
+                </div>
+
+            </div>
 
 
 
-<script type="text/javascript" src="main.js"></script>
+        </div>
+
+
+        <!--**********************third row********************************-->
+        <div class="row third-row">
+
+            <div class="col-md-8 text-center">
+
+                <div class="chart-head">
+                    <h6>Level 3 offence description</h6>
+                </div>
+                <div class="bgc-w">
+                    <div class="inline-block">
+                        <div id="bar-chart-5" class="text"></div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-4 text-center">
+
+                <div class="chart-head">
+                    <h6>Top 10 reported offence locations</h6>
+                </div>
+                <div class="bgc-w">
+                    <div class="inline-block">
+                        <div id="row-chart-6" class="text"></div>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+
+
+
+        </div>
+        <!--**********************forth row********************************-->
+
+
+
+
+
+        <div class="row forth-row">
+            <div class="col-xs-12 centering">
+                <div class="chart-head suburb-head inline-block">
+                    <h5 class="centering">Suburbs of South Australia</h5>
+                </div>
+            </div>
+            <div class="suburb-chart-outer-container bgc-w">
+                <div id="bar-chart-7" class="text"></div>
+            </div>
+
+        </div>
+
+        <!--**********************fifth row********************************-->
+
+
+
+
+
+
+
+        <div class="row sixth-row">
+            <div class="col-xs-offset-1 col-xs-10 ">
+
+                <div class="chart-head">
+                    <h5 class="text-center">Offences from July 2017 to March 2018</h5>
+                </div>
+                <div class="bgc-w">
+                    <div class="inline-block">
+                        <div id="line-chart-10" class="text"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+        <div class="row fifth-row ">
+            <div class="col-xs-12 centering">
+                
+                <div class="chart-head">
+                    <h5 class="text-center">Offences from July 2017 to March 2018</h5>
+                </div>
+                <div class="row reset-margin-top bgc-w">
+
+                    <div class="col-md-9 bgc-w">
+
+                        <div class="centering inline-block">
+                            <div id="bar-chart-8" class="text"></div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-3 days-container bgc-w">
+
+                        <div>
+                            <div class="day monday"></div>
+                            <p class="day-text">Monday:</p>
+                            <div id="percentMon" class="day-percent"> </div>
+                        </div>
+
+                        <div>
+                            <div class="day tuesday"></div>
+                            <p class="day-text">Tuesday:</p>
+                            <div id="percentTue" class="day-percent"></div>
+                        </div>
+
+                        <div>
+                            <div class="day wednesday"></div>
+                            <p class="day-text">Wednesday:</p>
+                            <div id="percentWed" class="day-percent"></div>
+                        </div>
+
+                        <div>
+                            <div class="day thursday"></div>
+                            <p class="day-text">Thursday:</p>
+                            <div id="percentThu" class="day-percent"></div>
+                        </div>
+
+                        <div>
+                            <div class="day friday"></div>
+                            <p class="day-text">Friday:</p>
+                            <div id="percentFri" class="day-percent"></div>
+                        </div>
+                        <div>
+                            <div class="day saturday"></div>
+                            <p class="day-text">Saturday:</p>
+                            <div id="percentSat" class="day-percent"></div>
+                        </div>
+
+                        <div>
+                            <div class="day sunday"></div>
+                            <p class="day-text">Sunday:</p>
+                            <div id="percentSun" class="day-percent"></div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--**********************sixth row********************************-->
+
+
+
+
+
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+    <script type="text/javascript" src="main.js"></script>
 
 </body>
 
