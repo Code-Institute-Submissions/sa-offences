@@ -291,7 +291,7 @@ function offencesIn2018(ndx) {
         .dimension(dateDim)
         .group(offences_over_2018)
 
-        .width(1000)
+        .width(900)
         .height(400)
         .margins({ top: 10, right: 0, bottom: 50, left: 50 })
         .elasticY(true)

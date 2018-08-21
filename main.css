@@ -1,5 +1,46 @@
 /*--------------------------------------default settings*/
+body {
+   
+   color: #000;
+}
 
+section {
+   padding-bottom: 50px;
+   background-image: url("assets/images/police.jpg");
+   background-size: contain;
+   background-attachment: fixed;
+   background-position: top;
+}
+button {
+   border-radius: 5px;
+   background-color: gray;
+   color: white;
+}
+.button-position {
+   display: inline-block;
+   margin-left: 15px;
+   float: left;
+   margin-top: 5px;
+   position:absolute ;
+   left: 30px;
+}
+
+.btn-hidden {
+   display: none;
+   margin-left: 15px;
+}
+
+.offence-display-number {
+   font-size: 50px;
+}
+
+.fa-question-circle {
+   position: absolute;
+   right: 30px;
+   margin-top: 10px;
+   color: black; 
+   font-size: 18px;
+}
 .centering {
    margin: 0 auto;
    
@@ -18,13 +59,17 @@
 }
 
 .bgc-w {
-   background-color: white;
+   background-color: rgba(255,255,255,0.8);
    padding: 20px 0;
 }
 
 .chart-head{
-   background-color: lightgray;
+   background-color: rgb(31, 119, 180);
    border-bottom: 2px solid gray;
+}
+
+.reset-margin-top {
+   margin-top: 0px;
 }
 
 
@@ -35,10 +80,12 @@
 h1 {
 
    margin: 20px auto 0px auto;
+   color: white;
 }
 
-h4 {
-   margin: 30px auto 30px auto;
+h5 {
+   margin: 10px 0;
+   font-weight: bold;
 }
 
 /*------------------------------------------------headings*/
@@ -82,31 +129,40 @@ h4 {
 
 /*----------------------------------dc chart default settings*/
 
-body {
-   background-color: #C4936E;
-   color: #000;
-}
-
-section {
-   padding-bottom: 50px;
-}
 
 
 
-.offence-display-number {
-   font-size: 50px;
-}
+
 
 /*/////////////////////Suburb selector///////////////////////////////////////*/
 .suburb-selector-1 {
    float: none !important;
 }
 
+.description-container-hidden {
+   
+   display: none;
+   
+}
+
+.description-container-show {
+   position: absolute;
+   background-color: white;
+   display: block;
+   z-index: 2;
+   border: 1px solid #000;
+   transform: translate(-100%, -150%);
+   
+   width: 200px;
+}
+
+
+
 /*/////////////////////Suburb selector///////////////////////////////////////*/
 
 /*/////////////////////Offence Count///////////////////////////////////////*/
 #offence-count-2{
-   padding: 23px 50px;
+   padding: 28px 50px;
 }
 /*/////////////////////Offence Count///////////////////////////////////////*/
 
@@ -122,15 +178,17 @@ text .y-axis-label .y-label {
 /*/////////////////////Suburb chart///////////////////////////////////////*/
 
 .suburb-chart-outer-container {
-   margin:0 100px 0px 100px;
-   display: inline-block;
+   
+   
    overflow: hidden;
    overflow-x: scroll;
    border: 1px solid #000;
 }
 
 .suburb-head {
-   width: 1119px;
+  
+   
+   
 }
 
 
@@ -138,9 +196,7 @@ text .y-axis-label .y-label {
 
 /*/////////////////////timeline chart///////////////////////////////////////*/
 
-.col-xs-offset-1 {
-   margin-left: 8.333333%;
-}
+
 
 
 
@@ -149,8 +205,24 @@ text .y-axis-label .y-label {
 /*/////////////////////Day Percentages///////////////////////////////////////*/
 .days-container {
    padding-top: 80px;
-   padding-right: 30px;
+   
+   text-align: left;
+   background-color: transparent;
+   width: 180px;
 }
+@media (min-width: 0) and (max-width: 1200px) {
+   .days-container {
+   padding-top: 20px;
+   width: 90%;
+   text-align: left;
+   background-color: transparent;
+   
+}
+.inline-block-max-1200 {
+   display: inline-block;
+}
+}
+
 .day {
    width: 15px;
    height: 15px;
@@ -167,14 +239,10 @@ text .y-axis-label .y-label {
 }
 
 .day-percent {
-   float: right !important;
+   float: none !important;
    color: black;
+   
 }
-
-.day-container {
-   display: block;
-}
-
 
 .monday {
    background-color: blue;
@@ -207,6 +275,4 @@ text .y-axis-label .y-label {
 
 /*/////////////////////Day Percentages///////////////////////////////////////*/
 
-.reset-margin-top {
-   margin-top: 0px;
-}
+
