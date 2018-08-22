@@ -9,8 +9,8 @@
     <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dc/2.1.8/dc.min.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="main.css" />
-
 
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
@@ -23,87 +23,102 @@
 </head>
 
 <body>
-
-    <section class="container-fluid">
-
-        <!--**********************first row********************************-->
-        <div class="row text-center">
+    <!--**********************RESET BUTTON********************************-->
+    <button class="reset-button"><a href="javascript:dc.renderAll();">Reset All</a></button>
+    <!--**********************FIRST ROW********************************-->
+    <header>
+        
+        <div class="text-center">
             <h1>Reported Offences in South Australia</h1>
         </div>
+    </header>
 
-        <!--**********************second row********************************-->
-        <div class="row second-row">
+    <!--**********************SECOND ROW********************************-->
+    <!--**********************Suburb selector********************************-->
+    <section class="container-custom">
+
+        <div class="row">
 
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 text-center">
 
                 <div class="chart-head">
-                    <h5 class="inline-block ">Suburb</h5>
-                    <i id="" class="fas fa-question-circle help-icon">
+                    <h5>Suburb</h5>
+                    <i class="fas fa-question-circle">
                         <div class="description-container-hidden">A select menu displaying the suburbs in South Australia.</div>
-                        </i>
-
+                    </i>
                 </div>
+
                 <div class="bgc-w">
-                    <div id="suburb-selector-1" class="suburb-selector-1"></div>
+                    <div id="suburb-selector-1"></div>
+                </div>
+                <!--**********************Offence Counter********************************-->
+                <div class="chart-head offence-counter-head">
+                    <h5>Total reported offences</h5>
+                    <i class="fas fa-question-circle">
+                        <div class="description-container-hidden">The total count of Offences reported.</div>
+                    </i>
                 </div>
 
-                <div class="chart-head">
-                    <h5 class="inline-block">Total reported offences</h5>
-                    <i id="" class="fas fa-question-circle help-icon"><div class="description-container-hidden">The total count of Offences reported.</div></i>
-                </div>
                 <div class="bgc-w ">
                     <div class="inline-block">
-                        <div id="offence-count-2" class="text offence-display-number"></div>
+                        <div id="offence-count-2" class="offence-counter-number"></div>
                     </div>
                 </div>
 
-
             </div>
-
+            <!--**********************Level 1 offence description pie chart********************************-->
 
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 text-center">
 
                 <div class="chart-head">
-                    <h5 class="inline-block ">Level 1 offence description</h5>
-                    <i id="" class="fas fa-question-circle help-icon"><div class="description-container-hidden">Whether an offence was reported against a person or property. </div></i>
+                    <h5>Level 1 offence description</h5>
+                    <i class="fas fa-question-circle">
+                        <div class="description-container-hidden">Whether an offence was reported against a person or property. </div>
+                    </i>
                 </div>
+
                 <div class="bgc-w">
                     <div class="inline-block">
-                        <div id="pie-chart-3" class="text"></div>
+                        <div id="pie-chart-3" class="test"></div>
                     </div>
-
                 </div>
-            </div>
 
+            </div>
+            <!--**********************Level 2 offence description pie chart********************************-->
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 text-center">
 
                 <div class="chart-head">
-                    <h5 class="inline-block ">Level 2 offence description</h5>
-                    <i id="" class="fas fa-question-circle help-icon"><div class="description-container-hidden">A second category breakdown of reported offences.  </div></i>
+                    <h5>Level 2 offence description</h5>
+                    <i class="fas fa-question-circle">
+                        <div class="description-container-hidden">A second category breakdown of reported offences.  </div>
+                    </i>
                 </div>
                 <div class="bgc-w">
                     <div class="inline-block">
-                        <div id="piechart-4" class="text"></div>
+                        <div id="piechart-4"></div>
                     </div>
                 </div>
 
             </div>
-
-
 
         </div>
 
 
-        <!--**********************third row********************************-->
-        <div class="row third-row">
+        <!--**********************THIRD ROW********************************-->
 
-            <div class="col-sm-12 col-md-12 col-lg-8 text-center">
+        <!--**********************Level 3 offence description bar chart********************************-->
+        <div class="row">
+
+            <div class="col-sm-12 col-md-12 col-lg-8 text-center ">
 
                 <div class="chart-head">
-                    <h5 class="inline-block">Level 3 offence description</h5>
-                    <i id="" class="fas fa-question-circle help-icon"><div class="description-container-hidden">A third category breakdown of reported offences.</div></i>
+                    <h5>Level 3 offence description</h5>
+                    <i class="fas fa-question-circle">
+                        <div class="description-container-hidden">A third category breakdown of reported offences.</div>
+                    </i>
                 </div>
-                <div class="bgc-w">
+
+                <div class="chart-outer-container bgc-w">
                     <div class="inline-block">
                         <div id="bar-chart-5" class="text"></div>
                     </div>
@@ -111,142 +126,144 @@
 
             </div>
 
+            <!--**********************Top ten row chart********************************-->
             <div class="col-sm-12 col-md-12 col-lg-4  text-center">
 
                 <div class="chart-head">
-                    <h5 class="inline-block text-center">Top 10 reported offence locations</h5>
-                    <i id="" class="fas fa-question-circle help-icon"><div class="description-container-hidden">The top ten locations for reported offences.</div></i>
+                    <h5>Top 10 reported offence locations</h5>
+                    <i class="fas fa-question-circle">
+                        <div class="description-container-hidden">The top ten locations for reported offences.</div>
+                    </i>
                 </div>
+
                 <div class="bgc-w">
                     <div class="inline-block">
-                        <div id="row-chart-6" class="text"></div>
+                        <div id="row-chart-6"></div>
                     </div>
                 </div>
 
             </div>
 
-
-
-
-
-
         </div>
-        <!--**********************forth row********************************-->
+        <!--**********************FORTH ROW********************************-->
+        <!--**********************Suburbs Bar Chart********************************-->
+        <button class="button-show-container">Show suburbs chart</button>
 
+        <div class="row">
 
-
-
-
-        <button id="button-1b" class="btn-hidden">Show suburbs chart</button>
-
-
-
-        <div id="row-4" class="row forth-row">
             <div class="col-xs-12">
-                <div class="chart-head suburb-head text-center">
-                    <button id="button-1a" class="button-position">hide</button>
-                    <h5 class="inline-block ">Suburbs of South Australia</h5>
-                    <i id="" class="fas fa-question-circle help-icon"><div class="description-container-hidden">A bar chart displaying the different suburbs in South Australia and their amount of reported offences. <br><br>Use the scrollbar at the bottom of this container or hold the shift key and scroll with the mouse to view more suburbs</div></i>
+
+                <div class="chart-head text-center">
+                    <button class="button-hide-container">hide</button>
+                    <h5>Suburbs of South Australia</h5>
+                    <i class="fas fa-question-circle">
+                        <div class="description-container-hidden">A bar chart displaying the different suburbs in South Australia and their amount of reported offences. 
+                        <br><br>Use the scrollbar at the bottom of this container or hold the shift key and scroll with the mouse to view more suburbs</div>
+                    </i>
                 </div>
+
                 <div class="suburb-chart-outer-container bgc-w">
                     <div id="bar-chart-7" class="text"></div>
                 </div>
+
             </div>
+
         </div>
 
+        <!--**********************FIFTH ROW********************************-->
+        <!--**********************Offence count line chart********************************-->
 
-        <!--**********************fifth row********************************-->
+        <button class="button-show-container">Show 2017 - 2018 barchart</button>
 
+        <div class="row">
 
-
-        <button id="button-2b" class="btn-hidden">Show 2017 - 2018 barchart</button>
-
-
-        <div id="row-5" class="row fifth-row">
             <div class="col-xs-12 text-center">
 
                 <div class="chart-head">
-                    <button id="button-2a" class="button-position">hide</button>
-                    <h5 class="inline-block ">Offences from July 2017 to March 2018</h5>
-                    <i id="" class="fas fa-question-circle help-icon"><div class="description-container-hidden">A line chart displaying the number of South Australia's reported offences between July 2017 and March 2018.</div></i>
+                    <button class="button-hide-container">hide</button>
+                    <h5>Offences from July 2017 to March 2018</h5>
+                    <i class="fas fa-question-circle">
+                        <div class="description-container-hidden">A line chart displaying the number of South Australia's reported offences between July 2017 and March 2018.</div>
+                    </i>
                 </div>
-                <div class="bgc-w">
+
+                <div class=" chart-outer-container bgc-w">
                     <div class="inline-block">
-                        <div id="line-chart-10" class="text"></div>
+                        <div id="line-chart-8"></div>
                     </div>
                 </div>
 
             </div>
+
         </div>
 
-        <!--**********************sixth row********************************-->
+        <!--**********************SIXTH ROW********************************-->
+        <!--**********************Offence count bar chart********************************-->
+
+        <button class="button-show-container">Show 2017 - 2018 Linechart</button>
 
 
+        <div class="row">
 
-        <button id="button-3b" class="btn-hidden">Show 2017 - 2018 Linechart</button>
-
-
-        <div id="row-6" class="row sixth-row ">
             <div class="col-xs-12 text-center">
 
                 <div class="chart-head">
-                    <button id="button-3a" class="button-position">hide</button>
-                    <h5 class="inline-block ">Offences from July 2017 to March 2018</h5>
-                    <i id="" class="fas fa-question-circle help-icon"><div class="description-container-hidden">A bar graph representation of South Australia's reported offences between July 2017 and March 2018.</div></i>
+                    <button class="button-hide-container">hide</button>
+                    <h5>Offences from July 2017 to March 2018</h5>
+                    <i class="fas fa-question-circle">
+                        <div class="description-container-hidden">A bar graph representation of South Australia's reported offences between July 2017 and March 2018.</div>
+                    </i>
                 </div>
-                <div class="row reset-margin-top bgc-w">
+
+                <div class="chart-outer-container reset-margin-top bgc-w">
 
                     <div class="col-xs-12 col-lg-10 ">
-
-                        <div class="centering inline-block">
-                            <div id="bar-chart-8" class="text"></div>
+                        <div class="inline-block">
+                            <div id="bar-chart-9"></div>
                         </div>
-
                     </div>
 
                     <div class="col-xs-12 col-lg-2 days-container bgc-w ">
 
                         <div class="inline-block-max-1200">
-                            <div class="day monday inline-block"></div>
-                            <p class="day-text inline-block">Monday:</p>
-
-                            <div id="percentMon" class="day-percent inline-block"> </div>
-
+                            <div class="day monday"></div>
+                            <p class="day-text">Monday:</p>
+                            <div id="percentMon" class="day-percent"> </div>
                         </div>
 
                         <div class="inline-block-max-1200">
-                            <div class="day tuesday inline-block"></div>
-                            <p class="day-text inline-block">Tuesday:</p>
-                            <div id="percentTue" class="day-percent inline-block"></div>
+                            <div class="day tuesday"></div>
+                            <p class="day-text">Tuesday:</p>
+                            <div id="percentTue" class="day-percent"></div>
                         </div>
 
                         <div class="inline-block-max-1200">
-                            <div class="day wednesday inline-block"></div>
-                            <p class="day-text inline-block">Wednesday:</p>
-                            <div id="percentWed" class="day-percent inline-block"></div>
+                            <div class="day wednesday"></div>
+                            <p class="day-text">Wednesday:</p>
+                            <div id="percentWed" class="day-percent"></div>
                         </div>
 
                         <div class="inline-block-max-1200">
-                            <div class="day thursday inline-block"></div>
-                            <p class="day-text inline-block">Thursday:</p>
-                            <div id="percentThu" class="day-percent inline-block"></div>
+                            <div class="day thursday"></div>
+                            <p class="day-text">Thursday:</p>
+                            <div id="percentThu" class="day-percent"></div>
                         </div>
 
                         <div class="inline-block-max-1200">
-                            <div class="day friday inline-block"></div>
-                            <p class="day-text inline-block">Friday:</p>
-                            <div id="percentFri" class="day-percent inline-block"></div>
+                            <div class="day friday"></div>
+                            <p class="day-text">Friday:</p>
+                            <div id="percentFri" class="day-percent"></div>
                         </div>
                         <div class="inline-block-max-1200">
-                            <div class="day saturday inline-block"></div>
-                            <p class="day-text inline-block">Saturday:</p>
-                            <div id="percentSat" class="day-percent inline-block"></div>
+                            <div class="day saturday"></div>
+                            <p class="day-text">Saturday:</p>
+                            <div id="percentSat" class="day-percent"></div>
                         </div>
 
                         <div class="inline-block-max-1200">
-                            <div class="day sunday inline-block"></div>
-                            <p class="day-text inline-block">Sunday:</p>
-                            <div id="percentSun" class="day-percent inline-block"></div>
+                            <div class="day sunday"></div>
+                            <p class="day-text">Sunday:</p>
+                            <div id="percentSun" class="day-percent"></div>
                         </div>
 
                     </div>
@@ -254,9 +271,27 @@
             </div>
         </div>
 
-
     </section>
-    
+
+    <!--**********************Footer********************************-->
+    <footer>
+        
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                <p>Data obtained from: <a href="https://data.sa.gov.au/data/dataset/crime-statistics">https://data.sa.gov.au/data/dataset/crime-statistics</a>
+                    <br> South Australia Police, Government of South Australia,
+                    <br> Crime statistics 2017-18 Q1 - Q3<a href="https://data.sa.gov.au/data/dataset/860126f7-eeb5-4fbc-be44-069aa0467d11/resource/bf604730-9ec8-44dd-88a3-f024b387e0e4/download/crime-statistics-2017-18-q1-q3.xlsx"> Dataset URL</a>
+                    <br> Creative Commons Attribution <a href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a>
+                </p>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-offset-4 col-md-4">
+                <div class="creator-container">
+                    <p class="inline-block">Website by Brett Cutting <br>Cheak out GitHub</p><a target="_blank" href="https://github.com/brettcutt/sa-offences"><img class="github-image" src="assets/images/github.png"></a>
+                </div>
+
+            </div>
+        
+    </footer>
+
 
     <script type="text/javascript" src="main.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
