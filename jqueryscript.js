@@ -27,7 +27,7 @@ $(document).ready(function() {
     });
     
     $(".info-button").click(function() {
-        $(this).parent().parent().hide("1000");
+        $(this).parent().parent().hide("fade", "1000");
     })
     
     

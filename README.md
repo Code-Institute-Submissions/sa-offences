@@ -144,14 +144,50 @@ compare to the upper charts.
 - https://fonts.googleapis.com/css?family=Titillium+Web
 - the font style Titillium Web is used through out the whole page.
 
+## Testing
+-w3c validator and used to check the html5 and css3 which return with no errors.
+-JSHint was used to check the javascript code which returned on errors.
+
+I originally had a reset button for each graph. For an unknown reason the bar and line graphs wouldn't reset but the pie and row charts would. I didn't feel it was 100% necessary to have many reset buttons
+for each so i changed it to just having one.
+Another problem I've encountered with the reset button is if a section is selected within the time graphs and the reset is clicked then those graphs would redraw but only as last selected and not properly
+reset.
+
+### Chrome   
+p = pass F = fail
+- Selector 1: P
+- Number counter 2: P
+- Piechart 3: P
+- Piechart 4: P
+- Barchart 5: P
+- Rowchart 6: P
+- Barchart 7: P
+- Linechart 8: P
+- Barchart 9: P
+- Question icon: P
+- container hide/ show buttons: P
+- reset button: charts 1 - 7: P  charts 8 - 9: F
+- url links / githubs: P
 
 
+### edge
+p = pass F = fail
+- Selector 1: P
+- Number counter 2: P
+- Piechart 3: P
+- Piechart 4: P
+- Barchart 5: P
+- Rowchart 6: P
+- Barchart 7: P
+- Linechart 8: P
+- Barchart 9: P
+- 
+- Question icon: F: When hovered over the icons on the right side of the screen, the container that appears might randomly turn blue. it fills part of it's parent container blue and also extends the 
+x axis scroll bar. 
 
-
-
-
-
-
+- container hide/ show buttons: P
+- reset button: charts 1 - 7: P  charts 8 - 9: F
+- url links / githubs: P
 
 
 
