@@ -166,7 +166,7 @@ p = pass F = fail
 - Barchart 9: P
 - Question icon: P
 - container hide/ show buttons: P
-- reset button: charts 1 - 7: P  charts 8 - 9: F
+- reset button: charts 1 - 7: P  charts 8 - 9: F  Don't reset.
 - url links / githubs: P
 
 
@@ -186,11 +186,46 @@ p = pass F = fail
 x axis scroll bar. 
 
 - container hide/ show buttons: P
-- reset button: charts 1 - 7: P  charts 8 - 9: F
+- reset button: charts 1 - 7: P  charts 8 - 9: F  Don't reset.
 - url links / githubs: P
 
+### Opera
 
+p = pass F = fail
+- Selector 1: P
+- Number counter 2: P
+- Piechart 3: P
+- Piechart 4: P
+- Barchart 5: P
+- Rowchart 6: P
+- Barchart 7: P
+- Linechart 8: P
+- Barchart 9: P
+- Question icon: P
+- container hide/ show buttons: P
+- reset button: charts 1 - 7: P  charts 8 - 9: F Don't reset.
+- url links / githubs: P
 
+### FireFox
+
+p = pass F = fail
+- Selector 1: P
+- Number counter 2: P
+- Piechart 3: P
+- Piechart 4: P
+- Barchart 5: P
+- Rowchart 6: P
+- Barchart 7: P
+- Linechart 8: P
+- Barchart 9: P
+- Question icon: P
+- container hide/ show buttons: P
+- reset button: charts 1 - 7: P  charts 8 - 9: F Don't reset.
+- url links / githubs: P
+
+### Safari
+
+safari wouldn't open github so i had no access to my project. 
 
 ## references
 
