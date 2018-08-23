@@ -16,15 +16,19 @@ $(document).ready(function() {
 
     /*suburb help selector*/
     $(".fa-question-circle").mouseenter(function() {
-        $(this).children().addClass("description-container-show");
-        $(this).children().removeClass("description-container-hidden");
+        $(this).next().addClass("description-container-show");
+        $(this).next().removeClass("description-container-hidden");
 
     });
 
     $(".fa-question-circle").mouseleave(function() {
-        $(this).children().removeClass("description-container-show");
-        $(this).children().addClass("description-container-hidden");
+        $(this).next().removeClass("description-container-show");
+        $(this).next().addClass("description-container-hidden");
     });
+    
+    $(".info-button").click(function() {
+        $(this).parent().parent().hide("1000");
+    })
     
     
 

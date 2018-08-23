@@ -1,32 +1,169 @@
-references
+# Reported offences in south Australia
+This is my second milestone project for the Full-Stack software development course through Code Institute.
+Before I started this project I liked the idea of making an interactive dashboard, I just didn't know what dataset to base it all on, so I first played around with different sets that I could find throughout my searches.
+On the South Australia Government site there were a lot of data sets avaliable to use and the most interesting by far was of the reported offences in the state.
+As I started to combine the data with the dc charts I found the results to be very intriguing and chose to contine my project on this dataset.
 
-Jquery
-<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-D3
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
-Crossfilter
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/crossfilter/1.3.12/crossfilter.min.js"></script>
-DC
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dc/2.1.8/dc.min.js"></script>
-<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dc/2.1.8/dc.min.css" />
-Queue
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/queue-async/1.0.7/queue.min.js"></script>
 
-BootStrap
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+## UX
+I believe there are so many crime shows on TV that it must be a topic that peaks the minds of a lot of people, Which is why Statistics in crime and more specifically crime in your state would attract a similar audience. 
+For anyone wanting to find the infomation of the type of offences commited, how often and where the offences happened than the data provided will show that.
+As a user I would expect to be able to click on a specific segment of a chart and it would display the a number of the reported offences that has happened.
 
-Font Awesome
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+### Objectives
 
-google fonts
-<link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+#### Who are your target audience?
 
-github image:
+-People with an interest in crime statistics.
+
+#### What is compelling visitors to your site?
+
+-To gain knowledge of what offences are committed in this state.
+
+#### Why is this site different?
+
+-It provides interactive charts that allow the user to select specific key details and obtain it's information.
+
+## Scope Plane
+
+## Features
+
+### Existing Features.
+
+-1. Suburb selector: This allows the user to select any suburb in the state where an offence has been committed.
+
+-2. Total offences counter: The counter will always show the total number of offences committed. It starts at the total of the whole state and than chances to the total of the users combined selections.
+
+-3. Level 1 offence description: All the offences have three levels of descriptions. This is a pie chart which shows a level 1 description, which is a number a offences committted against a person or a property.
+
+-4. Level 2 offence description: This is a pie chart which shows a level 2 description, which is a number a offences committted by:
+
+-theft and related offences
+-acts intended to cause injury
+-fraud deception and related offences
+-property damage and environmental
+-serious criminal trespass
+-homicide and related offences
+-other offences against the person
+-robbery and related offences
+    
+-5. Level 3 offence description: This is a bar chart which shows a level 3 description, which is a number a offences committted by:
+
+-theft and related offences
+-acts intended to cause injury
+-fraud deception and related offences
+-property damage and environmental
+-serious criminal trespass
+-theft and related offences
+-theft and related offences
+-theft and related offences
+-acts intended to cause injury
+-homicide and related offences
+-acts intended to cause injury
+-serious criminal trespass
+-property damage and environmental
+-theft and related offences
+-other offences against the person
+-property damage and environmental
+-other offences against the person
+-acts intended to cause injury
+-fraud deception and related offences
+-robbery and related offences
+-other offences against the person
+-acts intended to cause injury
+-robbery and related offences
+-homicide and related offences
+-robbery and related offences
+
+-6. Top 10: This is a row chart features the top ten suburbs where the specfic offences are commited.
+
+-7. Suburb barchart: the x axis is of the different suburbs and the y axis is the number of offences reported. The list of suburbs is too big to fit all on one screen, so I included an x axis scroll bar because I found it
+interesting to visually see the different suburbs compared to each other. I also limited the y axis to a domain of 800 reported offences because as a suburb Adelaide would take up most of the chart and leave the other suburbs
+looking unimpressive. If the cursor is hovered over a bar it displays the number and percent of reported offences. This hopefully makes up for the other suburbs over the 800 domain.
+
+-8. Offence count over time linechart: The x axis is for a time period from July 2017 to March 2018. The y axis is the number of offences. This chart can be zoomed in on, by scrolling on the mouse. 
+
+-9. Offence count over time barchart: This chart is the same as the line chart except it shows each day with a specific color. If there is any consistency between the day and the amount of offences committed, this will show it.
+The default view of the chart already shows that most reported offences occurs on a monday. Not to be confused when the actual offence has happened. I think it would be better to say the actual offence happens on a 
+saturday and sunday but not reported till the monday.
+
+-10. footer. This contains the infomation as to where the dataset was sourced and a link to the license type that suggests this infomation is free to use. Also there is a github icon that is linked to my github account.
+
+-11. buttons:
+
+-suburb, timeline and time bar chart buttons: A button was placed inside the heading container. This button allows the user to hide a chart container so that another chart container can become closer and easier to 
+compare to the upper charts.
+
+-reset button: This resets all the charts back to their original values.
+
+-12. hint icon: When hovered over this displays a text box giving a description of its chart container.
+
+### What features can later be included?
+
+- A row chart displaying the top ten suburbs offences are commited in the metropolitan and a top ten outside the metropolitan.
+- 
+## Technologies used 
+
+### Javascript
+- used to manipulate the value outputted by the charts.
+
+### Jquery
+  
+- https://code.jquery.com/jquery-3.3.1.js
+- https://code.jquery.com/ui/1.12.1/jquery-ui.js
+- The button/s to reset the charts and to hide the containers uses jquery.
+
+### D3
+- https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js
+- Used to build the charts.
+
+
+### Crossfilter
+- https://cdnjs.cloudflare.com/ajax/libs/crossfilter/1.3.12/crossfilter.min.js
+- - Used to build the charts.
+
+### DC
+- https://cdnjs.cloudflare.com/ajax/libs/dc/2.1.8/dc.min.js
+- https://cdnjs.cloudflare.com/ajax/libs/dc/2.1.8/dc.min.css
+- - Used to build the charts.
+
+### Queue
+- https://cdnjs.cloudflare.com/ajax/libs/queue-async/1.0.7/queue.min.js
+- Used to build the charts.
+
+### BootStrap
+- https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css
+- I used the bootstrap grid system to position the containers.
+
+### Font Awesome
+- https://use.fontawesome.com/releases/v5.2.0/css/all.css
+- The question icon is from the font awesome library.
+
+### google fonts
+- https://fonts.googleapis.com/css?family=Titillium+Web
+- the font style Titillium Web is used through out the whole page.
+
+
+
+
+
+
+
+
+
+
+
+
+
+## references
+
+
+
+### github image:
 https://pixabay.com/en/logo-icon-github-2582757/
 
-The database for the crime statistices used was obtained from the South Australia Government website
+### The database for the crime statistices used was obtained from the South Australia Government website
 licensed under a Creative Commons Attribution 4.0 License. © Copyright 2018 
 https://creativecommons.org/licenses/by/4.0/legalcode#s3a1
 https://creativecommons.org/licenses/by/4.0/
@@ -42,8 +179,6 @@ Reported Date	Suburb - Incident	Postcode - Incident	Offence Level 1  Description
 
 to:date,SuburbIncident,PostcodeIncident,offenceDescription1,offenceDescription2,offenceDescription3,OffenceCount
 
-
-
-reset button
-"javascript:chart.filterAll();dc.redrawAll();" found from
+### reset button
+javascript:dc.filterAll(); dc.renderAll(); found from
 https://stackoverflow.com/questions/21550270/dc-js-unable-to-redraw-charts

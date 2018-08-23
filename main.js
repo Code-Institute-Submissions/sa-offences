@@ -12,11 +12,11 @@ function makeGraphs(error, offenceData) {
         d.OffenceCount = parseInt(d.OffenceCount);
         d.date = parseDate(d.date);
         d.PostcodeIncident = parseInt(d.PostcodeIncident);
-    })
+    });
     
 
     suburb_selector(ndx);
-    offenceCount(ndx)
+    offenceCount(ndx);
     person_or_property_offences(ndx);
 
 
@@ -34,7 +34,7 @@ function makeGraphs(error, offenceData) {
 
     offencesIn2018(ndx);
     offencesIn2018DayColoured(ndx);
-    rowChart(ndx)
+    rowChart(ndx);
 
     dc.renderAll();
 }
@@ -45,9 +45,9 @@ function makeGraphs(error, offenceData) {
 function suburb_selector(ndx) {
 
     var dim = ndx.dimension(dc.pluck('SuburbIncident'));
-    group = dim.group()
+    group = dim.group();
 
-   suburb_selector = dc.selectMenu("#suburb-selector-1")
+   dc.selectMenu("#suburb-selector-1")
         .dimension(dim)
 
         .promptText('All suburbs')
@@ -77,10 +77,10 @@ function offenceCount(ndx) {
         },
 
         function() {
-            return { total: 0 }
+            return { total: 0 };
         }
 
-    )
+    );
 
     dc.numberDisplay("#offence-count-2")
 
@@ -88,7 +88,7 @@ function offenceCount(ndx) {
         .group(offenceCount)
         .formatNumber(d3.format("f"))
 
-        .valueAccessor(function(d) { return d.total });
+        .valueAccessor(function(d) { return d.total;});
 
 
 }
@@ -105,26 +105,26 @@ function person_or_property_offences(ndx) {
 
         function(p, v) {
             if (v.offenceDescription1 === "OFFENCES AGAINST THE PERSON" || v.offenceDescription1 === "OFFENCES AGAINST PROPERTY") {
-                p.total += v.OffenceCount
+                p.total += v.OffenceCount;
             }
             return p;
         },
         function(p, v) {
             if (v.offenceDescription1 === "OFFENCES AGAINST THE PERSON" || v.offenceDescription1 === "OFFENCES AGAINST PROPERTY") {
-                p.total -= v.OffenceCount
+                p.total -= v.OffenceCount;
             }
             return p;
         },
         function() {
-            return { total: 0 }
+            return { total: 0 };
         }
-    )
+    );
 
    dc.pieChart("#pie-chart-3")
 
         .dimension(dim)
         .group(property_or_person)
-        .title(function(d) { return ((d.value.total / 76997) * 100).toFixed(2) + "% - " + d.value.total + " Reported Offences" })
+        .title(function(d) { return ((d.value.total / 76997) * 100).toFixed(2) + "% - " + d.value.total + " Reported Offences" ;})
         .radius(200)
         .height(220)
         .width(350)
@@ -162,7 +162,7 @@ function offence_to_property_or_person_piechart(ndx) {
         },
         function() {
             return { total: 0 };
-        },
+        }
     );
 
    dc.pieChart("#piechart-4")
@@ -172,7 +172,7 @@ function offence_to_property_or_person_piechart(ndx) {
         .width(370)
 
         .transitionDuration(3500)
-        .title(function(d) { return d.key + " " + ((d.value.total / 8) / 100).toFixed(2) + "% - " + d.value.total + " Reported Offences" })
+        .title(function(d) { return d.key + " " + ((d.value.total / 8) / 100).toFixed(2) + "% - " + d.value.total + " Reported Offences";})
         .dimension(dim)
         .valueAccessor(function(d) {
             if (d.value.total > 0) {
@@ -220,7 +220,7 @@ function count_per_offence(ndx) {
         .xUnits(dc.units.ordinal)
         .yAxisLabel("Total reported offences")
         .xAxisLabel("Offence")
-        .title(function(d) { return ((d.value / 76997) * 100).toFixed(2) + "% - " + d.value + " Reported Offences" + " by: " + d.key })
+        .title(function(d) { return ((d.value / 76997) * 100).toFixed(2) + "% - " + d.value + " Reported Offences" + " by: " + d.key;})
         .yAxis().ticks(10);
 }
 
@@ -231,7 +231,7 @@ function rowChart(ndx) {
     var dim = ndx.dimension(dc.pluck("SuburbIncident"));
     var group = dim.group().reduceSum(dc.pluck("OffenceCount"));
 
-    var group = dim.group();
+    
     
     
    dc.rowChart("#row-chart-6")
@@ -242,7 +242,7 @@ function rowChart(ndx) {
         .elasticX(true)
         .cap(10)
         .gap(0)
-        .title(function(d) { return d.key })
+        .title(function(d) { return d.key;})
         .othersGrouper(false);
 }
 /*---------------------#6 row chart--------------------------------------------------------------------------------*/
@@ -260,7 +260,7 @@ function count_per_suburb(ndx) {
         .width(18000)
         .height(400)
         .elasticY(false)
-        .title(function(d) { return ((d.value / 76997) * 100).toFixed(2) + "% - " + d.value + " Reported Offences in " + d.key })
+        .title(function(d) { return ((d.value / 76997) * 100).toFixed(2) + "% - " + d.value + " Reported Offences in " + d.key;})
         .renderHorizontalGridLines(true)
         .renderVerticalGridLines(true)
         .transitionDuration(3500)
@@ -280,7 +280,7 @@ function offencesIn2018DayColoured(ndx) {
     var offences_over_2018 = dateDim.group().reduceSum(dc.pluck("OffenceCount"));
 
     var timeFormat = d3.time.format("%a/%e/%b/%Y");
-    var dayFormat = d3.time.format("%a");
+    
 
     var minDate = dateDim.bottom(1)[0].date;
     var maxDate = dateDim.top(1)[0].date;
@@ -345,22 +345,22 @@ function offencesIn2018(ndx) {
             .range(["blue", "red", "green", "purple", "black", "pink", "orange"]))
         .colorAccessor(function(d) {
             if (dayFormat(d.key) === "Mon") {
-                return "mondayColor"
+                return "mondayColor";
             }
             if (dayFormat(d.key) === "Tue") {
-                return "tuesdayColor"
+                return "tuesdayColor";
             }
             if (dayFormat(d.key) === "Wed") {
-                return "wednesdayColor"
+                return "wednesdayColor";
             }
             if (dayFormat(d.key) === "Thu") {
-                return "thursdayColor"
+                return "thursdayColor";
             }
             if (dayFormat(d.key) === "Fri") {
-                return "fridayColor"
+                return "fridayColor";
             }
             if (dayFormat(d.key) === "Sat") {
-                return "saturdayColor"
+                return "saturdayColor";
             }
             else {
                 return "sundayColor";
@@ -395,9 +395,9 @@ function percentage_of_offences(ndx, day, dayOfPercentage) {
             return p;
         },
         function() {
-            return { totalOffenceCount: 0, dayOffenceCount: 0 }
+            return { totalOffenceCount: 0, dayOffenceCount: 0 };
         }
-    )
+    );
 
     dc.numberDisplay(dayOfPercentage)
 
@@ -410,7 +410,7 @@ function percentage_of_offences(ndx, day, dayOfPercentage) {
                 return 0;
             }
             else {
-                return (d.dayOffenceCount / d.totalOffenceCount)
+                return (d.dayOffenceCount / d.totalOffenceCount);
             }
         });
 
