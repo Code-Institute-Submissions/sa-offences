@@ -182,14 +182,16 @@ p = pass F = fail
 - Linechart 8: P
 - Barchart 9: P
 - 
-- Question icon: F: When hovered over the icons on the right side of the screen, the container that appears might randomly turn blue. it fills part of it's parent container blue and also extends the 
+- Question icon: p: 
+- First test: When hovering over the icons on the right side of the screen, the container that appears might randomly turn blue. it fills part of it's parent container blue and also extends the 
 x axis scroll bar. 
+-Second test: After an updated version of my project and futher testing, the bug causing the blue container was no longer happening, the x axis scroll bar still extends.
 
 - container hide/ show buttons: P
 - reset button: charts 1 - 7: P  charts 8 - 9: F  Don't reset.
 - url links / githubs: P
 
-additional note: The fixed background jumps  while scrolling. 
+additional note: The fixed background jumps while scrolling. Through knowledge and research with my last project this is a common bug with edge. 
 
 ### Opera
 

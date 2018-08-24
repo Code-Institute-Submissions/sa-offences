@@ -1,5 +1,5 @@
 queue()
-    .defer(d3.csv, "crime-statistics.csv")
+    .defer(d3.csv,"assets/dataset/crime-statistics.csv")
     .await(makeGraphs);
 
 function makeGraphs(error, offenceData) {
@@ -86,7 +86,7 @@ function offenceCount(ndx) {
 
     dc.numberDisplay("#offence-count-2")
 
-        .transitionDuration(2500)
+        .transitionDuration(1700)
         .group(offenceCount)
         .formatNumber(d3.format("f"))
 

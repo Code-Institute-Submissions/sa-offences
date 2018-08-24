@@ -9,7 +9,7 @@ body {
 
 section {
    padding-bottom: 50px;
-   background-image: url("assets/images/police.jpg");
+   background-image: url("../images/police.jpg");
    background-size: contain;
    background-attachment: fixed;
    background-position: top;
@@ -56,11 +56,7 @@ section {
    padding: 0;
 }
 
-@media (max-width: 1133px) {
-   .chart-outer-container {
-      overflow-x: scroll;
-   }
-}
+
 
 /*---------------------------------------Buttons*/
 
@@ -211,9 +207,11 @@ text .y-axis-label .y-label {
    display: none;
 }
 
-.x-axis-label, .y-axis-label {
+.x-axis-label,
+.y-axis-label {
    font-weight: bold;
 }
+
 .dc-chart rect.bar {}
 
 /*----------------------------------dc chart default settings*/
@@ -321,6 +319,13 @@ text .y-axis-label .y-label {
 .chart-outer-container {
    overflow: hidden;
    border: 1px solid #000;
+   
+}
+
+@media (max-width: 1133px) {
+   .chart-outer-container {
+      overflow-x: scroll;
+   }
 }
 
 
@@ -379,20 +384,18 @@ footer p {
    font-size: 24px;
    font-weight: bold;
    animation-name: font-fade-in-out;
-    animation-direction: alternate;
-    animation-duration: 2s;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-    animation-play-state: running;
+   animation-direction: alternate;
+   animation-duration: 2s;
+   animation-timing-function: ease-in-out;
+   animation-iteration-count: infinite;
+   animation-play-state: running;
 }
 
-@keyframes font-fade-in-out{
+@keyframes font-fade-in-out {
    from {
-        color: rgba(255, 255, 255, 1);
-    }
-    to {
-        color: rgba(255, 255, 255, .1);
-    }
+      color: rgba(255, 255, 255, 1);
+   }
+   to {
+      color: rgba(255, 255, 255, .1);
+   }
 }
-
-
