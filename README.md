@@ -148,10 +148,10 @@ compare to the upper charts.
 -w3c validator and used to check the html5 and css3 which return with no errors.
 -JSHint was used to check the javascript code which returned on errors.
 
-I originally had a reset button for each graph. For an unknown reason the bar and line graphs wouldn't reset but the pie and row charts would. I didn't feel it was 100% necessary to have many reset buttons
-for each so i changed it to just having one.
-Another problem I've encountered with the reset button is if a section is selected within the time graphs and the reset is clicked then those graphs would redraw but only as last selected and not properly
-reset.
+I originally had a reset button for each graph. For an unknown reason the bar and line graphs wouldn't reset but the pie and row charts would. I didn't feel it was 100% necessary to have a reset 
+button for each chart so i changed it to just having one.
+Another problem I've encountered with the reset button is if a section is selected within the time graphs and the reset is clicked, then those graphs would redraw but only as last selected and 
+not properlyreset.
 
 ### Chrome   
 p = pass F = fail
@@ -188,6 +188,8 @@ x axis scroll bar.
 - container hide/ show buttons: P
 - reset button: charts 1 - 7: P  charts 8 - 9: F  Don't reset.
 - url links / githubs: P
+
+additional note: The fixed background jumps  while scrolling. 
 
 ### Opera
 
@@ -227,14 +229,17 @@ p = pass F = fail
 
 safari wouldn't open github so i had no access to my project. 
 
-## references
+## Credits
 
+### media
+The police background is from:
+https://www.flickr.com/photos/appleswitch/3103651077 by Robert Kuykendall
 
-
-### github image:
+The GitHub image is from:
 https://pixabay.com/en/logo-icon-github-2582757/
 
-### The database for the crime statistices used was obtained from the South Australia Government website
+### Database
+The database for the crime statistices used was obtained from the South Australia Government website
 licensed under a Creative Commons Attribution 4.0 License. © Copyright 2018 
 https://creativecommons.org/licenses/by/4.0/legalcode#s3a1
 https://creativecommons.org/licenses/by/4.0/

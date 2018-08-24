@@ -3,27 +3,28 @@ queue()
     .await(makeGraphs);
 
 function makeGraphs(error, offenceData) {
+
     var ndx = crossfilter(offenceData);
 
 
-    var parseDate = d3.time.format("%d/%m/%Y").parse;
+    var parseDate = d3.time.format("%d/%m/%Y").parse; // parsing the date key from text to a time in day, month and year.
 
     offenceData.forEach(function(d) {
-        d.OffenceCount = parseInt(d.OffenceCount);
+        d.OffenceCount = parseInt(d.OffenceCount); // parsing the offence count key from text to a number.
         d.date = parseDate(d.date);
-        d.PostcodeIncident = parseInt(d.PostcodeIncident);
+        d.PostcodeIncident = parseInt(d.PostcodeIncident); // parsing the postcode key from text into a number.
     });
-    
+
 
     suburb_selector(ndx);
     offenceCount(ndx);
-    person_or_property_offences(ndx);
-
-
-    count_per_offence(ndx);
+    offence_level_1(ndx);
+    offence_level_2(ndx);
+    offence_level_3(ndx);
     count_per_suburb(ndx);
-    offence_to_property_or_person_piechart(ndx);
-
+    Top_ten(ndx);
+    offences_time_linechart(ndx);
+    offences_time_barchart(ndx);
     percentage_of_offences(ndx, "Fri", "#percentFri");
     percentage_of_offences(ndx, "Mon", "#percentMon");
     percentage_of_offences(ndx, "Sat", "#percentSat");
@@ -32,11 +33,12 @@ function makeGraphs(error, offenceData) {
     percentage_of_offences(ndx, "Tue", "#percentTue");
     percentage_of_offences(ndx, "Wed", "#percentWed");
 
-    offencesIn2018(ndx);
-    offencesIn2018DayColoured(ndx);
-    rowChart(ndx);
-
     dc.renderAll();
+
+    setTimeout(function() { // Once the charts are fully loaded the loading screen will disappear. 
+        document.getElementById("load_screen").style.display = "none"
+    }, 1000);
+
 }
 
 
@@ -45,13 +47,13 @@ function makeGraphs(error, offenceData) {
 function suburb_selector(ndx) {
 
     var dim = ndx.dimension(dc.pluck('SuburbIncident'));
-    group = dim.group();
+    var group = dim.group();
 
-   dc.selectMenu("#suburb-selector-1")
+    dc.selectMenu("#suburb-selector-1")
         .dimension(dim)
-
+        .group(group)
         .promptText('All suburbs')
-        .group(group);
+
 }
 
 /*---------------------#1 Suburb Selector--------------------------------------------------------------------------------------------------------------*/
@@ -84,11 +86,11 @@ function offenceCount(ndx) {
 
     dc.numberDisplay("#offence-count-2")
 
-        .transitionDuration(3500)
+        .transitionDuration(2500)
         .group(offenceCount)
         .formatNumber(d3.format("f"))
 
-        .valueAccessor(function(d) { return d.total;});
+        .valueAccessor(function(d) { return d.total; });
 
 
 }
@@ -98,7 +100,7 @@ function offenceCount(ndx) {
 
 /*---------------------#3 pie Chart offence number to property or person-------------------------------------------------------------------------------*/
 
-function person_or_property_offences(ndx) {
+function offence_level_1(ndx) {
     var dim = ndx.dimension(dc.pluck('offenceDescription1'));
 
     var property_or_person = dim.group().reduce(
@@ -120,17 +122,17 @@ function person_or_property_offences(ndx) {
         }
     );
 
-   dc.pieChart("#pie-chart-3")
+    dc.pieChart("#pie-chart-3")
 
         .dimension(dim)
         .group(property_or_person)
-        .title(function(d) { return ((d.value.total / 76997) * 100).toFixed(2) + "% - " + d.value.total + " Reported Offences" ;})
+        .title(function(d) { return ((d.value.total / 76997) * 100).toFixed(2) + "% - " + d.value.total + " Reported Offences"; })
         .radius(200)
         .height(220)
         .width(350)
         .innerRadius(20)
 
-        .transitionDuration(3500)
+        .transitionDuration(1700)
         .valueAccessor(function(d) {
             if (d.value.total > 0) {
                 return (d.value.total);
@@ -147,7 +149,7 @@ function person_or_property_offences(ndx) {
 
 /*---------------------#4 Pie Chart offence Number of offences per suburb--------------------------------------------------------------------------------*/
 
-function offence_to_property_or_person_piechart(ndx) {
+function offence_level_2(ndx) {
     var dim = ndx.dimension(dc.pluck("offenceDescription2"));
 
     var total_offence_to_description2 = dim.group().reduce(
@@ -164,16 +166,18 @@ function offence_to_property_or_person_piechart(ndx) {
             return { total: 0 };
         }
     );
+     
+    dc.pieChart("#piechart-4")
+        .dimension(dim)
+        .group(total_offence_to_description2)
 
-   dc.pieChart("#piechart-4")
         .innerRadius(20)
         .radius(200)
         .height(220)
         .width(370)
 
-        .transitionDuration(3500)
-        .title(function(d) { return d.key + " " + ((d.value.total / 8) / 100).toFixed(2) + "% - " + d.value.total + " Reported Offences";})
-        .dimension(dim)
+        .transitionDuration(1700)
+        .title(function(d) { return d.key + " " + ((d.value.total / 8) / 100).toFixed(2) + "% - " + d.value.total + " Reported Offences"; })
         .valueAccessor(function(d) {
             if (d.value.total > 0) {
                 return d.value.total;
@@ -181,25 +185,30 @@ function offence_to_property_or_person_piechart(ndx) {
             else {
                 return 0;
             }
-        })
-        .group(total_offence_to_description2);
-    /*.legend(dc.legend().x(0).y(20).itemHeight(15).gap(5))*/
+        });
+        
+        dc.pieChart("#test")
+        .dimension(dim)
+        .group(total_offence_to_description2)
+        
+        
+        
+        .legend(dc.legend().x(0).y(0).itemHeight(15).gap(5));
+
+
 }
-
-
-
 
 
 /*---------------------#4 Pie Chart offence Number of offences per suburb--------------------------------------------------------------------------------*/
 
 
 /*---------------------#5 Bar Chart offence Number of offences per suburb--------------------------------------------------------------------------------*/
-function count_per_offence(ndx) {
+function offence_level_3(ndx) {
     var type_of_offence = ndx.dimension(dc.pluck('offenceDescription3'));
     var offence_count = type_of_offence.group().reduceSum(dc.pluck("OffenceCount"));
 
 
-   dc.barChart("#bar-chart-5")
+    dc.barChart("#bar-chart-5")
 
         .dimension(type_of_offence)
         .group(offence_count)
@@ -214,36 +223,35 @@ function count_per_offence(ndx) {
         })
         .renderHorizontalGridLines(true)
         .renderVerticalGridLines(true)
-        .elasticY( true)
-        .transitionDuration(3500)
+        .elasticY(true)
+        .transitionDuration(1700)
         .x(d3.scale.ordinal())
         .xUnits(dc.units.ordinal)
-        .yAxisLabel("Total reported offences")
-        .xAxisLabel("Offence")
-        .title(function(d) { return ((d.value / 76997) * 100).toFixed(2) + "% - " + d.value + " Reported Offences" + " by: " + d.key;})
+        .yAxisLabel("Offence Count")
+        .xAxisLabel("Offences")
+        .title(function(d) { return ((d.value / 76997) * 100).toFixed(2) + "% - " + d.value + " Reported Offences" + " by: " + d.key; })
         .yAxis().ticks(10);
 }
 
 /*---------------------#5 Bar Chart offence Number of offences per suburb--------------------------------------------------------------------------------*/
 
 /*---------------------#6 row chart--------------------------------------------------------------------------------*/
-function rowChart(ndx) {
+function Top_ten(ndx) {
     var dim = ndx.dimension(dc.pluck("SuburbIncident"));
     var group = dim.group().reduceSum(dc.pluck("OffenceCount"));
 
-    
-    
-    
-   dc.rowChart("#row-chart-6")
+    dc.rowChart("#row-chart-6")
         .dimension(dim)
         .group(group)
+
         .width(400)
         .height(380)
+        .transitionDuration(1700)
         .elasticX(true)
         .cap(10)
         .gap(0)
-        .title(function(d) { return d.key;})
-        .othersGrouper(false);
+        .title(function(d) { return d.key; })
+        .othersGrouper(false)
 }
 /*---------------------#6 row chart--------------------------------------------------------------------------------*/
 /*---------------------#7 Bar Chart offence Number of offences per suburb--------------------------------------------------------------------------------*/
@@ -252,7 +260,7 @@ function count_per_suburb(ndx) {
     var offence_count = type_of_offence.group().reduceSum(dc.pluck("OffenceCount"));
 
 
-   dc.barChart("#bar-chart-7")
+    dc.barChart("#bar-chart-7")
 
         .dimension(type_of_offence)
         .group(offence_count)
@@ -260,10 +268,10 @@ function count_per_suburb(ndx) {
         .width(18000)
         .height(400)
         .elasticY(false)
-        .title(function(d) { return ((d.value / 76997) * 100).toFixed(2) + "% - " + d.value + " Reported Offences in " + d.key;})
+        .title(function(d) { return ((d.value / 76997) * 100).toFixed(2) + "% - " + d.value + " Reported Offences in " + d.key; })
         .renderHorizontalGridLines(true)
         .renderVerticalGridLines(true)
-        .transitionDuration(3500)
+        .transitionDuration(1700)
         .x(d3.scale.ordinal())
         .xUnits(dc.units.ordinal)
         .y(d3.scale.linear().domain([0, 800]))
@@ -274,18 +282,18 @@ function count_per_suburb(ndx) {
 
 /*---------------------#7 Bar Chart offence Number of offences per suburb--------------------------------------------------------------------------------*/
 /*---------------------#8 line Chart Offences over the year--------------------------------------------------------------------------------*/
-function offencesIn2018DayColoured(ndx) {
+function offences_time_linechart(ndx) {
 
     var dateDim = ndx.dimension(dc.pluck("date"));
     var offences_over_2018 = dateDim.group().reduceSum(dc.pluck("OffenceCount"));
 
     var timeFormat = d3.time.format("%a/%e/%b/%Y");
-    
+
 
     var minDate = dateDim.bottom(1)[0].date;
     var maxDate = dateDim.top(1)[0].date;
 
-   dc.lineChart("#line-chart-8")
+    dc.lineChart("#line-chart-8")
         .dimension(dateDim)
         .group(offences_over_2018)
 
@@ -302,7 +310,8 @@ function offencesIn2018DayColoured(ndx) {
         .renderArea(false)
         .transitionDuration(1500)
         .x(d3.time.scale().domain([minDate, maxDate]))
-        .xAxisLabel("2018")
+        .xAxisLabel("Date from march 2017 to July 2018")
+        .yAxisLabel("Offence Count")
         .elasticY(true)
         .renderDataPoints(true)
         .yAxis().ticks(10);
@@ -311,7 +320,7 @@ function offencesIn2018DayColoured(ndx) {
 /*---------------------#8 line Chart Offences over the year--------------------------------------------------------------------------------*/
 /*---------------------#9 bar Chart Offences over the year--------------------------------------------------------------------------------*/
 
-function offencesIn2018(ndx) {
+function offences_time_barchart(ndx) {
 
     var dateDim = ndx.dimension(dc.pluck("date"));
     var offences_over_2018 = dateDim.group().reduceSum(dc.pluck("OffenceCount"));
@@ -321,7 +330,7 @@ function offencesIn2018(ndx) {
     var minDate = dateDim.bottom(1)[0].date;
     var maxDate = dateDim.top(1)[0].date;
 
-   dc.barChart("#bar-chart-9")
+    dc.barChart("#bar-chart-9")
         .dimension(dateDim)
         .group(offences_over_2018)
 
@@ -337,13 +346,14 @@ function offencesIn2018(ndx) {
         .renderTitle(true)
         .transitionDuration(1500)
         .x(d3.time.scale().domain([minDate, maxDate]))
-
-
         .gap(-3)
-        .xAxisLabel("2018")
+        .xAxisLabel("Date from march 2017 to July 2018")
+        .yAxisLabel("Offence Count")
+
         .colors(d3.scale.ordinal().domain(["MondayColor", "tuesdayColor", "wednesdayColor", "thursdayColor", "fridayColor", "saturdayColor", "sundayColor"])
-            .range(["blue", "red", "green", "purple", "black", "pink", "orange"]))
-        .colorAccessor(function(d) {
+            .range(["blue", "red", "green", "purple", "black", "brown", "orange"]))
+
+        .colorAccessor(function(d) { // If the date is equal to a particular day than that day will be that color.
             if (dayFormat(d.key) === "Mon") {
                 return "mondayColor";
             }
@@ -377,12 +387,10 @@ function percentage_of_offences(ndx, day, dayOfPercentage) {
     var dayFormat = d3.time.format("%a");
     var percentage = ndx.groupAll().reduce(
 
-
-
         function(p, v) {
-            p.totalOffenceCount += v.OffenceCount;
-            if (dayFormat(v.date) === day) {
-                p.dayOffenceCount += v.OffenceCount;
+            p.totalOffenceCount += v.OffenceCount; // Add all the offence count values to totalOffenceCount
+            if (dayFormat(v.date) === day) { // If the date is a particular day
+                p.dayOffenceCount += v.OffenceCount; //then add that days offence count values to dayOffenceCount
             }
             return p;
         },
@@ -403,14 +411,14 @@ function percentage_of_offences(ndx, day, dayOfPercentage) {
 
         .group(percentage)
 
-        .transitionDuration(3500)
+        .transitionDuration(2000)
         .formatNumber(d3.format(".2%"))
         .valueAccessor(function(d) {
-            if (d.totalOffenceCount == 0) {
+            if (d.totalOffenceCount == 0) { //If the count is 0 than return no value
                 return 0;
             }
             else {
-                return (d.dayOffenceCount / d.totalOffenceCount);
+                return (d.dayOffenceCount / d.totalOffenceCount); //return the day offence count divided by the total of all the offence counts
             }
         });
 

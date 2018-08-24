@@ -3,14 +3,19 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
-
+    <meta name="description" content="Charts displaying the reported offences in South Australia">
+        <meta name="keywords" content="sa offences, sa crime">
+        <meta name="author" content="Brett Cutting">
+    <title>Reported offences in South Australia</title>
 
     <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dc/2.1.8/dc.min.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="main.css" />
+
+
+
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
@@ -23,6 +28,9 @@
 </head>
 
 <body>
+    <div id="load_screen">
+        <div class="loading">Loading</div>
+    </div>
     <!--**********************RESET BUTTON********************************-->
     <a class="reset-button" href="javascript:dc.filterAll(); dc.renderAll();">Reset All</a>
     <!--**********************FIRST ROW********************************-->
@@ -45,7 +53,7 @@
                     <h5>Suburb</h5>
                     <div class="question-answer-container">
                         <i class="fas fa-question-circle"></i>
-                        <p class="description-container-hidden">A select menu displaying the suburbs in South Australia.</p>
+                        <p class="description-container-hidden">Select a suburb in South Australia to see its statistics.</p>
                     </div>
                 </div>
 
@@ -57,7 +65,7 @@
                     <h5>Total reported offences</h5>
                     <div class="question-answer-container">
                         <i class="fas fa-question-circle"></i>
-                        <p class="description-container-hidden">The total count of Offences reported.</p>
+                        <p class="description-container-hidden">By default this is set to the total amount of offences committed in South Australia. It will change with selections made on a chart.</p>
                     </div>
                 </div>
 
@@ -76,7 +84,7 @@
                     <h5>Level 1 offence description</h5>
                     <div class="question-answer-container">
                         <i class="fas fa-question-circle"></i>
-                        <p class="description-container-hidden">Whether an offence was reported against a person or property. </p>
+                        <p class="description-container-hidden">The level 1 description shows what amount and percentage of offences was committed against a person or property. </p>
                     </div>
                 </div>
 
@@ -94,7 +102,11 @@
                     <h5>Level 2 offence description</h5>
                     <div class="question-answer-container">
                         <i class="fas fa-question-circle"></i>
-                        <p class="description-container-hidden">A second category breakdown of reported offences. </p>
+                        <div id="pie-hidden-container" class="description-container-hidden">
+                            <p>The level 2 description involves 8 sub catagories which are broken down from the level 1 description</p>
+                            <div id="test"></div>
+                        </div>
+
                     </div>
                 </div>
 
@@ -120,7 +132,7 @@
                     <h5>Level 3 offence description</h5>
                     <div class="question-answer-container">
                         <i class="fas fa-question-circle"></i>
-                        <p class="description-container-hidden">A third category breakdown of reported offences.</p>
+                        <p class="description-container-hidden">The level 3 description involves 25 sub catagories which are futher broken down from the level 2 sub catagories.</p>
                     </div>
                 </div>
 
@@ -139,7 +151,7 @@
                     <h5>Top 10 reported offence locations</h5>
                     <div class="question-answer-container">
                         <i class="fas fa-question-circle"></i>
-                        <p class="description-container-hidden">The top ten locations for reported offences.</p>
+                        <p class="description-container-hidden">A list of the top ten locations for reported offences. This will change by selections in other charts.</p>
                     </div>
                 </div>
 
@@ -165,7 +177,7 @@
                     <h5>Suburbs of South Australia</h5>
                     <div class="question-answer-container">
                         <i class="fas fa-question-circle"></i>
-                        <p class="description-container-hidden">A bar chart displaying the different suburbs in South Australia and their amount of reported offences.
+                        <p class="description-container-hidden">This bar chart displays the different suburbs in South Australia and their amount of reported offences.
                             <br><br>Use the scrollbar at the bottom of this container or hold the shift key and scroll with the mouse to view more suburbs</p>
                     </div>
                 </div>
@@ -197,7 +209,11 @@
                     <h5>Offences from July 2017 to March 2018</h5>
                     <div class="question-answer-container">
                         <i class="fas fa-question-circle"></i>
-                        <p class="description-container-hidden">A line chart displaying the number of South Australia's reported offences between July 2017 and March 2018.</p>
+                        <p class="description-container-hidden">This line chart displays the number of South Australia's reported offences between July 2017 and March 2018.
+                        <br>
+                        <br>
+                        Use the mouse scroll to zoom in on a particular period of time
+                        </p>
                     </div>
                 </div>
 
@@ -224,24 +240,26 @@
         <div class="row">
 
             <div class="col-xs-12 text-center">
-                
+
                 <div class="info">
                     <div class="inner-info-container">
                         <p>Use the mouse scroll to zoom in on a particular period of time</p>
                         <button class="info-button">OK</button>
                     </div>
                 </div>
-                
+
                 <div class="chart-head">
                     <button class="button-hide-container">hide</button>
                     <h5>Offences from July 2017 to March 2018</h5>
                     <div class="question-answer-container">
                         <i class="fas fa-question-circle"></i>
-                        <p class="description-container-hidden">A bar graph representation of South Australia's reported offences between July 2017 and March 2018.</p>
+                        <p class="description-container-hidden">This bar graph displays South Australia's reported offences between July 2017 and March 2018.
+                        <br>
+                        <br>
+                        Use the mouse scroll to zoom in on a particular period of time
+                        </p>
                     </div>
                 </div>
-
-
 
                 <div class="chart-outer-container reset-margin-top bgc-w">
 
@@ -250,8 +268,6 @@
                             <div id="bar-chart-9"></div>
                         </div>
                     </div>
-
-
 
                     <div class="col-xs-12 col-lg-2 days-container bgc-w ">
 
@@ -313,20 +329,21 @@
                 <br> Creative Commons Attribution <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a>
             </p>
         </div>
+        
         <div class="col-xs-12 col-sm-6 col-md-offset-4 col-md-4">
             <div class="creator-container">
-                <p class="inline-block">Website by Brett Cutting <br>Cheak out GitHub</p><a target="_blank" href="https://github.com/brettcutt/sa-offences"><img class="github-image" src="assets/images/github.png" alt="github logo"></a>
+                <p>Website by Brett Cutting </p>
+                <p><a target="_blank" href="https://github.com/brettcutt/sa-offences"> <img class="github-image" src="assets/images/github.png" alt="github logo">GitHub: brettcutt</a></p>  
             </div>
-
         </div>
 
     </footer>
-
 
     <script src="main.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="jqueryscript.js"></script>
+
 </body>
 
 </html>
