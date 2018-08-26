@@ -102,11 +102,11 @@ compare to the upper charts.
 ### What features can later be included?
 
 - A row chart displaying the top ten suburbs offences are commited in the metropolitan and a top ten outside the metropolitan.
-- 
+
 ## Technologies used 
 
 ### Javascript
-- used to manipulate the value outputted by the charts.
+- used to manipulate the values outputted by the charts.
 
 ### Jquery
   
@@ -121,12 +121,12 @@ compare to the upper charts.
 
 ### Crossfilter
 - https://cdnjs.cloudflare.com/ajax/libs/crossfilter/1.3.12/crossfilter.min.js
-- - Used to build the charts.
+- Used to build the charts.
 
 ### DC
 - https://cdnjs.cloudflare.com/ajax/libs/dc/2.1.8/dc.min.js
 - https://cdnjs.cloudflare.com/ajax/libs/dc/2.1.8/dc.min.css
-- - Used to build the charts.
+- Used to build the charts.
 
 ### Queue
 - https://cdnjs.cloudflare.com/ajax/libs/queue-async/1.0.7/queue.min.js
@@ -145,13 +145,21 @@ compare to the upper charts.
 - the font style Titillium Web is used through out the whole page.
 
 ## Testing
--w3c validator and used to check the html5 and css3 which return with no errors.
--JSHint was used to check the javascript code which returned on errors.
+- w3c validator and used to check the html5 and css3 which returned with no errors.
+- JSHint was used to check the javascript code which returned on errors.
+- Everything is device responsive. Different devices were checked in the different browser developer tools.
+- the project was also tested on my personal mobile that runs chrome.
 
-I originally had a reset button for each graph. For an unknown reason the bar and line graphs wouldn't reset but the pie and row charts would. I didn't feel it was 100% necessary to have a reset 
-button for each chart so i changed it to just having one.
-Another problem I've encountered with the reset button is if a section is selected within the time graphs and the reset is clicked, then those graphs would redraw but only as last selected and 
-not properlyreset.
+- The project guidelines stated that dc charts are not responsive and are for destop and large screen viewing. I made the chart containers responsive so they all stacked below each other.
+
+- I originally had a reset button for each graph. For an unknown reason the bar and line graphs wouldn't reset but the pie and row charts would. I didn't feel it was 100% necessary to have a reset 
+button for each chart so i changed it to just having one for all which was different code and worked. Reference to the code https://stackoverflow.com/questions/21550270/dc-js-unable-to-redraw-charts
+- Another problem I've encountered with the reset button is if a section is selected within the time graphs and the reset is clicked, then those graphs would redraw but only as last selected and 
+not reset to its original default. 
+
+-My testing would involve clicking on an option from each chart, making sure all charts would respond to each other. As a user I would first be curious as to what the result would be for the suburb I live in.
+For example I picked the suburb I live in and was able to see straight away the number of offences, the type of offences and when those offences were reported. I would than make sure all the charts reset. I would check
+that each charts question icon when hovered over would display the infomation container. Next the buttons to hide each of the last three charts were checked and lastly the url links in the footer were checked.
 
 ### Chrome   
 p = pass F = fail
@@ -167,7 +175,7 @@ p = pass F = fail
 - Question icon: P
 - container hide/ show buttons: P
 - reset button: charts 1 - 7: P  charts 8 - 9: F  Don't reset.
-- url links / githubs: P
+- url links / github: P
 
 
 ### edge
@@ -181,15 +189,14 @@ p = pass F = fail
 - Barchart 7: P
 - Linechart 8: P
 - Barchart 9: P
-- 
-- Question icon: p: 
+- Question icon: P
 - First test: When hovering over the icons on the right side of the screen, the container that appears might randomly turn blue. it fills part of it's parent container blue and also extends the 
 x axis scroll bar. 
--Second test: After an updated version of my project and futher testing, the bug causing the blue container was no longer happening, the x axis scroll bar still extends.
+- Second test: After an updated version of my project and futher testing, the bug causing the blue container was no longer happening, the x axis scroll bar still extends.
 
 - container hide/ show buttons: P
 - reset button: charts 1 - 7: P  charts 8 - 9: F  Don't reset.
-- url links / githubs: P
+- url links / github: P
 
 additional note: The fixed background jumps while scrolling. Through knowledge and research with my last project this is a common bug with edge. 
 
@@ -208,7 +215,7 @@ p = pass F = fail
 - Question icon: P
 - container hide/ show buttons: P
 - reset button: charts 1 - 7: P  charts 8 - 9: F Don't reset.
-- url links / githubs: P
+- url links / github: P
 
 ### FireFox
 
@@ -229,7 +236,7 @@ p = pass F = fail
 
 ### Safari
 
-safari wouldn't open github so i had no access to my project. 
+safari wouldn't open github or cloud 9 so i had no access to my project. 
 
 ## Credits
 
@@ -257,6 +264,17 @@ Reported Date	Suburb - Incident	Postcode - Incident	Offence Level 1  Description
 
 to:date,SuburbIncident,PostcodeIncident,offenceDescription1,offenceDescription2,offenceDescription3,OffenceCount
 
-### reset button
+
+
+### Achknowledgments
+#### fellow code institute students
+Being able to show my projects on the slack forum and getting advice for small changes e.g: text that only made sense to the desktop mode and
+not mobile or tablet.
+
+#### sites
+-For a better understanding of the d3 time formats
+-https://github.com/d3/d3-3.x-api-reference/blob/master/Time-Formatting.md
+
+- finding a code for the reset button.
 javascript:dc.filterAll(); dc.renderAll(); found from
 https://stackoverflow.com/questions/21550270/dc-js-unable-to-redraw-charts

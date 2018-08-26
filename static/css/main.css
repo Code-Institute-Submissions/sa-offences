@@ -4,7 +4,6 @@ body {
    font-family: "titillium web", sans-serif;
 }
 
-
 /*--------------------------------------default settings*/
 
 section {
@@ -60,11 +59,6 @@ section {
 
 /*---------------------------------------Buttons*/
 
-i {
-   z-index: 2;
-}
-
-
 button {
    border-radius: 5px;
    background-color: gray;
@@ -84,6 +78,11 @@ button {
    bottom: 30px;
    z-index: 2;
    border-radius: 5px;
+}
+
+.reset-button:focus {
+   text-decoration: none;
+   color: #000;
 }
 
 
@@ -110,12 +109,12 @@ button {
    margin-left: 15px;
 }
 
-.description-container-hidden {
+.description-container-hidden {  /*in jquery for question icon on hover: remove description-container-hidden and add description-container-show*/
    display: none;
    font-size: 12px;
 }
 
-.description-container-show {
+.description-container-show {  /*in jquery for question icon on hover: remove description-container-hidden and add description-container-show*/
    position: absolute;
    background-color: rgba(255, 255, 255, .85);
    display: block;
@@ -132,6 +131,10 @@ button {
    right: 30px;
    margin-top: 10px;
    color: black;
+}
+
+#pie-chart-4-legend svg{
+   width: 250px;
 }
 
 .info-button {
@@ -254,6 +257,9 @@ text .y-axis-label .y-label {
    }
 }
 
+#line-chart-8 {
+   margin-left: 30px
+}
 
 /*/////////////////////Day Percentages///////////////////////////////////////*/
 
@@ -399,3 +405,5 @@ footer p {
       color: rgba(255, 255, 255, .1);
    }
 }
+
+

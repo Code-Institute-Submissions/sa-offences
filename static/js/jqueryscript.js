@@ -16,14 +16,14 @@ $(document).ready(function() {
 
     /*suburb help selector*/
     $(".fa-question-circle").mouseenter(function() {
-        $(this).next().addClass("description-container-show");
-        $(this).next().removeClass("description-container-hidden");
+        $(this).siblings().addClass("description-container-show");
+        $(this).siblings().removeClass("description-container-hidden");
 
     });
 
     $(".fa-question-circle").mouseleave(function() {
-        $(this).next().removeClass("description-container-show");
-        $(this).next().addClass("description-container-hidden");
+        $(this).siblings().removeClass("description-container-show");
+        $(this).siblings().addClass("description-container-hidden");
     });
     
     $(".info-button").click(function() {

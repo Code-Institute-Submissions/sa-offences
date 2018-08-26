@@ -1,5 +1,5 @@
 queue()
-    .defer(d3.csv,"assets/dataset/crime-statistics.csv")
+    .defer(d3.csv, "static/dataset/crime-statistics.csv")
     .await(makeGraphs);
 
 function makeGraphs(error, offenceData) {
@@ -36,7 +36,7 @@ function makeGraphs(error, offenceData) {
     dc.renderAll();
 
     setTimeout(function() { // Once the charts are fully loaded the loading screen will disappear. 
-        document.getElementById("load_screen").style.display = "none"
+        document.getElementById("load_screen").style.display = "none";
     }, 1000);
 
 }
@@ -52,8 +52,7 @@ function suburb_selector(ndx) {
     dc.selectMenu("#suburb-selector-1")
         .dimension(dim)
         .group(group)
-        .promptText('All suburbs')
-
+        .promptText('All suburbs');
 }
 
 /*---------------------#1 Suburb Selector--------------------------------------------------------------------------------------------------------------*/
@@ -91,8 +90,6 @@ function offenceCount(ndx) {
         .formatNumber(d3.format("f"))
 
         .valueAccessor(function(d) { return d.total; });
-
-
 }
 
 /*---------------------#2 Number Display Total Offences-------------------------------------------------------------------------------*/
@@ -166,7 +163,7 @@ function offence_level_2(ndx) {
             return { total: 0 };
         }
     );
-     
+
     dc.pieChart("#piechart-4")
         .dimension(dim)
         .group(total_offence_to_description2)
@@ -186,13 +183,13 @@ function offence_level_2(ndx) {
                 return 0;
             }
         });
-        
-        dc.pieChart("#test")
+
+    dc.pieChart("#pie-chart-4-legend")
         .dimension(dim)
         .group(total_offence_to_description2)
+
         
-        
-        
+
         .legend(dc.legend().x(0).y(0).itemHeight(15).gap(5));
 
 
@@ -250,8 +247,7 @@ function Top_ten(ndx) {
         .elasticX(true)
         .cap(10)
         .gap(0)
-        .title(function(d) { return d.key; })
-        .othersGrouper(false)
+        .othersGrouper(false);
 }
 /*---------------------#6 row chart--------------------------------------------------------------------------------*/
 /*---------------------#7 Bar Chart offence Number of offences per suburb--------------------------------------------------------------------------------*/
@@ -297,7 +293,7 @@ function offences_time_linechart(ndx) {
         .dimension(dateDim)
         .group(offences_over_2018)
 
-        .width(1100)
+        .width(940)
         .height(400)
         .margins({ top: 10, right: 50, bottom: 50, left: 50 })
         .mouseZoomable(true)
@@ -581,7 +577,7 @@ function offence_to_property_or_person(ndx) {
 
         .valueAccessor(function(d) {
             if (d.value.total > 0) {
-                return (d.value.match / d.value.total) * 100
+                return (d.value.match / d.value.total) * 100;
             }
             else {
                 return 0;
@@ -595,5 +591,4 @@ function offence_to_property_or_person(ndx) {
         .margins({ top: 10, right: 200, bottom: 200, left: 30 });
 
 }
-
----------------------#5 Stack Chart offence description 2 compared to whether against a person or property---------------------------------------------*/
+*/

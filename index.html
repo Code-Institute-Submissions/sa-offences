@@ -3,24 +3,30 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Charts displaying the reported offences in South Australia">
-        <meta name="keywords" content="sa offences, sa crime">
-        <meta name="author" content="Brett Cutting">
+    <meta name="description" content="A project displaying interactive charts from data of reported offences in South Australia">
+    <meta name="keywords" content="sa offences, sa crime">
+    <meta name="author" content="Brett Cutting">
+
     <title>Reported offences in South Australia</title>
 
+    <!--Libraries-->
+    
     <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dc/2.1.8/dc.min.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
-    <link type="text/css" rel="stylesheet" href="assets/css/main.css" />
-
+    <!--Charts-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crossfilter/1.3.12/crossfilter.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dc/2.1.8/dc.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/queue-async/1.0.7/queue.min.js"></script>
+    <!--Libraries-->
 
-
-
+    <!--Reference sheet-->
+    <link type="text/css" rel="stylesheet" href="static/css/main.css" />
+    
+    
+    <!--Reference sheet-->
 </head>
 
 <body>
@@ -98,11 +104,10 @@
                     <h5>Level 2 offence description</h5>
                     <div class="question-answer-container">
                         <i class="fas fa-question-circle"></i>
-                        <div id="pie-hidden-container" class="description-container-hidden">
+                        <div class="description-container-hidden">
                             <p>The level 2 description involves 8 sub catagories which are broken down from the level 1 description</p>
-                            <div id="test"></div>
+                            <div id="pie-chart-4-legend"></div>
                         </div>
-
                     </div>
                 </div>
 
@@ -173,8 +178,12 @@
                     <h5>Suburbs of South Australia</h5>
                     <div class="question-answer-container">
                         <i class="fas fa-question-circle"></i>
-                        <p class="description-container-hidden">This bar chart displays the different suburbs in South Australia and their amount of reported offences.
-                            <br><br>Use the scrollbar at the bottom of this container or hold the shift key and scroll with the mouse to view more suburbs</p>
+                        <p class="description-container-hidden hidden-xs hidden-sm">This bar chart displays the different suburbs in South Australia and the amount of reported offences in that location.
+                            <br><br>Use the scrollbar at the bottom of this container or hold the shift key and scroll with the mouse to view more suburbs
+                        </p>
+                        <p class="description-container-hidden hidden-md hidden-lg">This bar chart displays the different suburbs in South Australia and their amount of reported offences.
+                            <br><br>Use the scrollbar at the bottom of this container to view more suburbs
+                        </p>
                     </div>
                 </div>
 
@@ -194,32 +203,34 @@
         <div class="row">
 
             <div class="col-xs-12 text-center">
+
                 <div class="info">
                     <div class="inner-info-container">
-                        <p>Use the mouse scroll to zoom in on a particular period of time</p>
+                        <p class="hidden-xs hidden-sm">Use the mouse scroll to zoom in on a particular period of time</p>
+                        <p class="hidden-md hidden-lg">Use your fingers to zoom in on a particular period of time</p>
                         <button class="info-button">OK</button>
                     </div>
                 </div>
+
                 <div class="chart-head">
                     <button class="button-hide-container">hide</button>
                     <h5>Offences from July 2017 to March 2018</h5>
                     <div class="question-answer-container">
                         <i class="fas fa-question-circle"></i>
-                        <p class="description-container-hidden">This line chart displays the number of South Australia's reported offences between July 2017 and March 2018.
-                        <br>
-                        <br>
-                        Use the mouse scroll to zoom in on a particular period of time
+                        <p class="description-container-hidden hidden-xs hidden-sm">This bar graph displays South Australia's reported offences between July 2017 and March 2018.
+                            <br>
+                            <br> Use the mouse scroll to zoom in on a particular period of time
+                        </p>
+                        <p class="description-container-hidden hidden-md hidden-lg">This bar graph displays South Australia's reported offences between July 2017 and March 2018.
+                            <br>
+                            <br> Use your fingers to zoom in on a particular period of time
                         </p>
                     </div>
                 </div>
 
-
-
                 <div class=" chart-outer-container bgc-w">
-
                     <div class="inline-block">
                         <div id="line-chart-8"></div>
-
                     </div>
                 </div>
 
@@ -239,20 +250,25 @@
 
                 <div class="info">
                     <div class="inner-info-container">
-                        <p>Use the mouse scroll to zoom in on a particular period of time</p>
+                        <p class="hidden-xs hidden-sm">Use the mouse scroll to zoom in on a particular period of time</p>
+                        <p class="hidden-md hidden-lg">Use your fingers to zoom in on a particular period of time</p>
                         <button class="info-button">OK</button>
                     </div>
                 </div>
 
                 <div class="chart-head">
+                    
                     <button class="button-hide-container">hide</button>
                     <h5>Offences from July 2017 to March 2018</h5>
                     <div class="question-answer-container">
                         <i class="fas fa-question-circle"></i>
-                        <p class="description-container-hidden">This bar graph displays South Australia's reported offences between July 2017 and March 2018.
-                        <br>
-                        <br>
-                        Use the mouse scroll to zoom in on a particular period of time
+                        <p class="description-container-hidden hidden-xs hidden-sm">This bar graph displays South Australia's reported offences between July 2017 and March 2018.
+                            <br>
+                            <br> Use the mouse scroll to zoom in on a particular period of time
+                        </p>
+                        <p class="description-container-hidden hidden-md hidden-lg">This bar graph displays South Australia's reported offences between July 2017 and March 2018.
+                            <br>
+                            <br> Use your fingers to zoom in on a particular period of time
                         </p>
                     </div>
                 </div>
@@ -325,21 +341,26 @@
                 <br> Creative Commons Attribution <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a>
             </p>
         </div>
-        
+
         <div class="col-xs-12 col-sm-6 col-md-offset-4 col-md-4">
             <div class="creator-container">
                 <p>Website by Brett Cutting </p>
-                <p><a target="_blank" href="https://github.com/brettcutt/sa-offences"> <img class="github-image" src="assets/images/github.png" alt="github logo">GitHub: brettcutt</a></p>  
+                <p><a target="_blank" href="https://github.com/brettcutt/sa-offences"> <img class="github-image" src="static/images/github.png" alt="github logo">GitHub: brettcutt</a></p>
             </div>
         </div>
 
     </footer>
 
-    <script src="assets/js/graphs.js"></script>
+    <!--Libraries-->
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="assets/js/jqueryscript.js"></script>
+    <!--Libraries-->
 
+    <!--Reference sheets-->
+    <script src="static/js/jqueryscript.js"></script>
+    <script src="static/js/graphs.js"></script>
+    
+    <!--Reference sheets-->
 </body>
 
 </html>
