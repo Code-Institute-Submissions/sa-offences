@@ -10,7 +10,7 @@
     <title>Reported offences in South Australia</title>
 
     <!--Libraries-->
-    
+
     <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dc/2.1.8/dc.min.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
@@ -24,8 +24,8 @@
 
     <!--Reference sheet-->
     <link type="text/css" rel="stylesheet" href="static/css/main.css" />
-    
-    
+
+
     <!--Reference sheet-->
 </head>
 
@@ -257,7 +257,7 @@
                 </div>
 
                 <div class="chart-head">
-                    
+
                     <button class="button-hide-container">hide</button>
                     <h5>Offences from July 2017 to March 2018</h5>
                     <div class="question-answer-container">
@@ -335,10 +335,12 @@
     <footer>
 
         <div class="col-xs-12 col-sm-6 col-md-4">
-            <p>Data obtained from: <a target="_blank" href="https://data.sa.gov.au/data/dataset/crime-statistics">https://data.sa.gov.au/data/dataset/crime-statistics</a>
+
+            <p><a id="disclaimer-link">Disclaimer</a><br> Data obtained from: <a target="_blank" href="https://data.sa.gov.au/data/dataset/crime-statistics">https://data.sa.gov.au/data/dataset/crime-statistics</a>
                 <br> South Australia Police, Government of South Australia,
                 <br> Crime statistics 2017-18 Q1 - Q3<a target="_blank" href="https://data.sa.gov.au/data/dataset/860126f7-eeb5-4fbc-be44-069aa0467d11/resource/bf604730-9ec8-44dd-88a3-f024b387e0e4/download/crime-statistics-2017-18-q1-q3.xlsx"> Dataset URL</a>
                 <br> Creative Commons Attribution <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a>
+
             </p>
         </div>
 
@@ -348,7 +350,20 @@
                 <p><a target="_blank" href="https://github.com/brettcutt/sa-offences"> <img class="github-image" src="static/images/github.png" alt="github logo">GitHub: brettcutt</a></p>
             </div>
         </div>
+        <div id="disclaimer-notice" class="disclaimer-hidden">
 
+            <h4 class="disclaimer-heading">Disclaimer</h4>
+            <p>The information contained in this website is for my software development project and is for general information purposes only. I make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability,
+                suitability or availability with respect to the website or the information, products, services, or related graphics contained on the website for any purpose. Any reliance you place on such information is therefore strictly at your own
+                risk.<br><br> In no event will I be liable for any loss or damage including without limitation, indirect or consequential loss or damage, or any loss or damage whatsoever arising from loss of data or profits arising out of, or in connection
+                with, the use of this website.<br><br> Through this website you are able to link to other websites which are not under the control of me. I have no control over the nature, content and availability of those sites. The inclusion of any
+                links does not necessarily imply a recommendation or endorse the views expressed within them.
+            </p>
+            <div class="text-center">
+                <button id="disclaimer-button" class="inline-block">OK</button>
+            </div>
+
+        </div>
     </footer>
 
     <!--Libraries-->
@@ -359,7 +374,7 @@
     <!--Reference sheets-->
     <script src="static/js/jqueryscript.js"></script>
     <script src="static/js/graphs.js"></script>
-    
+
     <!--Reference sheets-->
 </body>
 

@@ -30,6 +30,17 @@ $(document).ready(function() {
         $(this).parent().parent().hide("fade", "1000");
     })
     
+    //disclaimer notice
+    $("#disclaimer-link").click(function() {
+        $("#disclaimer-notice").removeClass("disclaimer-hidden")
+        $("#disclaimer-notice").addClass("disclaimer-show")
+    })
+    
+    $("#disclaimer-button").click(function() {
+        $("#disclaimer-notice").addClass("disclaimer-hidden")
+        $("#disclaimer-notice").removeClass("disclaimer-show")
+    })
+    
     
     
 

@@ -369,6 +369,38 @@ footer p {
    color: #fff;
 }
 
+#disclaimer-link {
+   cursor: pointer;
+}
+.disclaimer-hidden {
+   display: none;
+}
+
+.disclaimer-show {
+   background-color: #fff;
+   border-radius: 10px;
+   display: inline-block;
+   position: absolute;
+   min-width: 200px;
+   max-width: 500px;
+   margin: 0 auto;
+   right: 0;
+   left: 0;
+   padding: 10px;
+   transform: translateY(-100%);
+   z-index: 3;
+}
+
+.disclaimer-heading {
+   text-align: center;
+   margin-bottom:10px;
+}
+
+#disclaimer-button {
+   margin: 0 auto;
+   padding: 0 5px;
+}
+
 
 /*/////////////////////Load screen///////////////////////////////////////*/
 
