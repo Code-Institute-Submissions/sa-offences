@@ -116,7 +116,7 @@ button {
 
 .description-container-show {  /*in jquery for question icon on hover: remove description-container-hidden and add description-container-show*/
    position: absolute;
-   background-color: rgba(255, 255, 255, .9);
+   background-color: rgba(255, 255, 255, .95);
    display: block;
    z-index: 2;
    border-radius: 10px;
