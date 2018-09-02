@@ -4,6 +4,12 @@ body {
    font-family: "titillium web", sans-serif;
 }
 
+@media (max-width: 767px) {
+   body {
+      width: 450px;
+   }
+}
+
 /*--------------------------------------default settings*/
 
 section {
@@ -159,6 +165,11 @@ button {
    transform: translateY(150%);
    border-radius: 10px;
 }
+@media (max-width: 991px) {
+   .inner-info-container {
+   transform: translateY(50%);
+}
+}
 
 /*-----------------------------------------------headings*/
 
@@ -231,7 +242,12 @@ text .y-axis-label .y-label {
    font-size: 50px;
    padding: 16px 50px;
 }
-
+/*/////////////////////Offence 3 bar chart///////////////////////////////////////*/
+@media (max-width: 767px) {
+   .offence-3-margin-top {
+   margin-top: -20px
+}
+}
 
 /*/////////////////////Suburb chart Bar Chart///////////////////////////////////////*/
 
@@ -407,6 +423,7 @@ footer p {
    top: 0px;
    width: 100%;
    height: 100%;
+   text-align: center;
 }
 
 .loading {

@@ -163,7 +163,9 @@ compare to the upper charts.
 - Everything is device responsive, which was checked in the developer tools.
 - the project was also tested on my personal mobile that runs chrome.
 
-- The project guidelines stated that dc charts are not responsive and are for desktop and large screen viewing. I made the chart containers responsive so they all stacked appropriately to the device being used.
+- The project guidelines stated that dc charts are not responsive and are for desktop and large screen viewing. I made the chart containers responsive so they all stacked appropriately to the device being used. Also
+I made the larger charts overflow hidden on the tablet and mobile versions. That way the user can scroll on the "x" axis to view the charts at an appropriate and readable size. A message for this has been displayed
+on the initial loading of the charts so it is a bit more obvious to the user.
 
 - I originally had a reset button for each graph. For an unknown reason the bar and line graphs wouldn't reset but the pie and row charts would. I didn't feel it was 100% necessary to have a reset 
 button for each chart, so I changed this to just having one for all charts, which was a different code and worked. Reference to the code https://stackoverflow.com/questions/21550270/dc-js-unable-to-redraw-charts
