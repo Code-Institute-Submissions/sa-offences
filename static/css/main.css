@@ -6,7 +6,7 @@ body {
 
 @media (max-width: 767px) {
    body {
-      width: 450px;
+      width: 415px;
    }
 }
 
@@ -276,7 +276,6 @@ text .y-axis-label .y-label {
 
 .days-container {
    padding-top: 80px;
-
    text-align: left;
    background-color: transparent;
    width: 180px;
